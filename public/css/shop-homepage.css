@@ -1,0 +1,175 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+/* navBar */
+#navbar
+{
+    background-color: #e3f2fd;
+    height: 65px;
+}
+nav div 
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    margin-top: 5px;
+}
+.navbar-header img
+{
+    width: 43px;
+    height: 43px;
+}
+/* navBar de l'user */
+#navUser
+{
+    display: flex;
+    justify-content: flex-end;
+}
+#navUser a
+{
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+#title
+{
+    text-align: center;
+}
+/* tasknav */
+#taskNav
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#taskNav a 
+{
+    margin-left: 10px;
+}
+/* formulaires */
+#fromRow
+{
+    display: flex;
+    justify-content: center;
+
+    height: 400px;
+}
+.formContenair
+{
+    width: 500px;
+}
+.formContenair form input, .formContenairConnexion form input, #task_content
+{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.formContenair form
+{
+    position: relative;
+    top: 50px;
+}
+.formContenairConnexion
+{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+}
+.formContenairConnexion form
+{
+    width: 350px;
+
+    position: relative;
+    top: 50px;
+}
+.formContenairConnexion form label
+{
+    text-align: center;
+}
+.formContenair form button
+{
+    position: relative;
+    top:50px;
+}
+#taskList
+{
+    position: relative;
+    top: 110px;
+    left: 305px;    
+}
+#task_createdAt
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+#task_createdAt div select
+{
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+
+}
+
+/* page liste des tâches */
+#taskContenair
+{
+    margin-top: 60px;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+/* footer */
+footer 
+{
+    background-color: #e3f2fd;
+    height: 65px;
+}
+footer div div
+{
+    position: relative;
+    top: 25px;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row" id="fromRow">
+
+        <div class="formContenair">
+        
+            {{ form_start(form, {'action' : path('task_create')}) }}
+
+                {{ form_widget(form.createdAt, { 'attr': {'class': 'form-date'} }) }}
+                {{ form_widget(form.title, { 'attr': {'class': 'form-control', 'placeholder': 'Titre' } }) }}
+                {{ form_widget(form.content, { 'attr': {'class': 'form-control', 'placeholder': 'La tâche à réaliser' } }) }}
+
+                <button type="submit" class="btn btn-success pull-right">Ajouter</button>
+            {{ form_end(form) }}
+
+        <a href="{{ path('task_list') }}" class="btn btn-primary" id="taskList">Retour à la liste des tâches</a>
+        </div>
+    </div>
+{% endblock %}
