@@ -11,7 +11,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
+/**
+ * Gère les paths liées à l'entité User
+ */
 class UserController extends AbstractController
 {
     /**
@@ -46,7 +48,10 @@ class UserController extends AbstractController
 
                 $hash = $encoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($hash);
-                $user->setRoles(explode( "," , $user->getRole()));
+
+                //$user->setRole("Utilisateur");
+                //$user->setRoles(explode( "" , $user->getRole()));
+                $user->setRoles(array( $user->getRole()));
 
                 $em->persist($user);
                 $em->flush();
@@ -56,7 +61,6 @@ class UserController extends AbstractController
                 return $this->redirectToRoute('user_list');
             }
         }
-
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
     }
 

@@ -24,14 +24,14 @@ class TaskController extends AbstractController
         return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('App:Task')->findAll()]);
     }
 
-        /**
+    /**
      * Affiche la liste des tasks en base de données
      * 
      * @Route("/tasksfinished", name="tasksfinished")
      */
     public function listActionFinished()
     {
-        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('App:Task')->findAll()]);
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('App:Task')->findBy(array('isDone' => true))]);
     }
 
     /**
@@ -63,9 +63,7 @@ class TaskController extends AbstractController
     
                 return $this->redirectToRoute('task_list');
             }
-
         }
-
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
@@ -108,12 +106,23 @@ class TaskController extends AbstractController
      */
     public function toggleTaskAction(Task $task)
     {
-        $task->toggle(!$task->setIsDone(true));
-        $this->getDoctrine()->getManager()->flush();
+        var_dump($task->getTitle());
+        echo("HEY");
 
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        if ( $this->getUser()->getUsername() == ($task->getUser()->getUsername())) {
 
-        return $this->redirectToRoute('task_list');
+            //$task->toggle(!$task->setIsDone(true));
+            $task->setIsDone(true);
+            $this->getDoctrine()->getManager()->flush();
+    
+            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+    
+            return $this->redirectToRoute('task_list');
+
+        } else {
+
+            $this->addFlash('error', 'La tâche a pas changé.');
+        }
     }
 
     /**
@@ -136,7 +145,6 @@ class TaskController extends AbstractController
 
             $this->addFlash('error', 'La tâche existe toujours.');
         }
-
         return $this->redirectToRoute('task_list');
     }
 }

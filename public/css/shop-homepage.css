@@ -63,7 +63,7 @@ nav div
 {
     width: 500px;
 }
-.formContenair form input, .formContenairConnexion form input, #task_content
+.formContenair form input, .formContenairConnexion form input, #task_content, .formContenair form select
 {
     margin-bottom: 20px;
     text-align: center;
