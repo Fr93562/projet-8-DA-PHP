@@ -4,11 +4,20 @@
 {% block header_img %}{% endblock %}
 
 {% block body %}
-    <div class="row">
-        {{ form_start(form, {'action' : path('user_edit', {'id' : user.id})}) }}
-        {{ form_widget(form) }}
+    <div class="row" id="fromRow">
+      <div class="formContenair">
+      
+            {{ form_start(form, {'action' : path('user_create', { 'id': user.id})}) }}
+        
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Pseudo' } }) }}
+            {{ form_widget(form.role, { 'attr': {'class': 'form-control', 'placeholder': 'Role'} }) }}
+            {{ form_widget(form.password, { 'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'} }) }}
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email'} }) }}
 
-        <button type="submit" class="btn btn-success pull-right">Modifier</button>
+
+            <button type="submit" class="btn btn-success pull-right">Ajouter</button>
         {{ form_end(form) }}
+      
+      </div>
     </div>
 {% endblock %}

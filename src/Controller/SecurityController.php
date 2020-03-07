@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use PHPUnit\Framework\TestCase;
 
 class SecurityController extends AbstractController
 {
@@ -15,7 +16,6 @@ class SecurityController extends AbstractController
      */
     public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
     {
-
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -27,6 +27,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/login_check", name="login_check")
+     * @codeCoverageIgnore
      */
     public function loginCheck(Request $request)
     {
@@ -35,6 +36,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/logout", name="logout")
+     * @codeCoverageIgnore
      */
     public function logoutCheck()
     {
@@ -43,6 +45,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/login", name="app_login")
+     * @codeCoverageIgnore
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -60,6 +63,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/logout", name="app_logout")
+     * @codeCoverageIgnore
      */
     public function logout()
     {

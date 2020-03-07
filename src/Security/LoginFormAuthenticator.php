@@ -19,7 +19,11 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use PHPUnit\Framework\TestCase;
 
+/**
+* @codeCoverageIgnore
+*/
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
@@ -43,7 +47,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     }
 
     public function getCredentials(Request $request)
-    {        
+    {
         $credentials = [
             'username' => $request->request->get('username'),
             'password' => $request->request->get('password'),

@@ -18,7 +18,7 @@ class UserController extends AbstractController
 {
     /**
      * Affiche la liste des entités User
-     * 
+     *
      * @IsGranted("ROLE_ADMIN")
      * @Route("/users", name="user_list")
      */
@@ -29,7 +29,7 @@ class UserController extends AbstractController
 
     /**
      * Rajoute un user en base de données
-     * 
+     *
      * @Route("/users/create", name="user_create")
      */
     public function createAction(Request $request, UserPasswordEncoderInterface $encoder)
@@ -41,9 +41,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-
             if ($form->isValid()) {
-                
                 $em = $this->getDoctrine()->getManager();
 
                 $hash = $encoder->encodePassword($user, $user->getPassword());
@@ -67,7 +65,7 @@ class UserController extends AbstractController
     /**
      * Met à jour un user
      * Accessible aux users authentifiés
-     * 
+     *
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @Route("/users/{id}/edit", name="user_edit")
      */
@@ -79,13 +77,12 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-
             if ($form->isValid()) {
                 $password = $user->getPassword();
                 $hash = $encoder->encodePassword($user, $user->getPassword());
 
                 $user->setPassword($password);
-                $user->setRoles(explode( "," , $user->getRole()));
+                $user->setRoles(explode(",", $user->getRole()));
 
                 $this->getDoctrine()->getManager()->flush();
 

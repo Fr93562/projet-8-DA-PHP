@@ -12,7 +12,7 @@ class DefaultController extends AbstractController
 {
     /**
      * Appelle la page d'accueil
-     * 
+     *
      * @Route("/", name="homepage")
      */
     public function indexAction()
