@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6c7d65a7a8f64d86b658203804a7f892)](https://www.codacy.com/manual/Fr93562/projet-8-DA-PHP?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fr93562/projet-8-DA-PHP&amp;utm_campaign=Badge_Grade)
+
 # To do list app
 
 ## Résumé 
