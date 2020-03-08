@@ -124,11 +124,6 @@ Le  ``` LoginFormAuthentificator ``` qui se situe dans Security est un fichier p
 * ``` getLoginUrl  ```: renvoie la path de ``` app_login ```  
 
 
-#### Exemple de connexion sur le site
-
-écrit à la fin
-
-## References
-
-
 ### Mises à jour
+
+/
