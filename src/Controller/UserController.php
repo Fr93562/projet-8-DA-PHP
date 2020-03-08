@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -78,12 +78,14 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
                 $password = $user->getPassword();
                 $hash = $encoder->encodePassword($user, $user->getPassword());
 
                 $user->setPassword($password);
                 $user->setRoles(explode(",", $user->getRole()));
 
+                //$em->persist($user);
                 $this->getDoctrine()->getManager()->flush();
 
                 $this->addFlash('success', "L'utilisateur a bien été modifié");

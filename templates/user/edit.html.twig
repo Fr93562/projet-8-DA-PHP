@@ -7,7 +7,7 @@
     <div class="row" id="fromRow">
       <div class="formContenair">
       
-            {{ form_start(form, {'action' : path('user_create', { 'id': user.id})}) }}
+            {{ form_start(form, {'action' : path('user_edit', { 'id': user.id})}) }}
         
             {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Pseudo' } }) }}
             {{ form_widget(form.role, { 'attr': {'class': 'form-control', 'placeholder': 'Role'} }) }}

@@ -130,10 +130,26 @@ class UserControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'testUser',
             'PHP_AUTH_PW'   => 'testUser',
         ]);
-        $crawler = $client->request('GET', '/users/1/edit');
+        $crawler = $client->request('GET', '/users/11/edit');
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
         $this->assertSame("user_edit", $request = $client->getRequest()->attributes->get('_route')); // récupère le nom de la route pour la comparer à l'attendu
         $this->assertSame(1, $crawler->filter('html:contains("To Do List app")')->count());
+    }
+
+        /**
+     * vérifie l'accès de update user pour un user authentifié
+     */
+    public function testUserEditAuthentifiedSubmit()
+    {
+        $client = static::createClient([], [
+            'PHP_AUTH_USER' => 'testUser',
+            'PHP_AUTH_PW'   => 'testUser',
+        ]);
+        $crawler = $client->request('GET', '/users/11/edit');
+        $form = $crawler->selectButton('Ajouter')->form();
+        $crawler = $client->submit($form);
+
+        $this->assertSame(302, $client->getResponse()->getStatusCode());
     }
 }

@@ -4,14 +4,6 @@
 
 ![todolist](https://nopanic.fr/wp-content/uploads/2017/01/todolist-1.jpg)
 
-### Sommaire 
-
-*
-*
-*
-*
-*
-
 -----------------
 
 ### Information du projet
@@ -65,11 +57,15 @@ Ce site est principalement constitué de 3 pages:
 * Users / édition: accessible aux utilisateurs authentifiés
 * Users / list des users: accesible aux utilisateurs avec le rôle administrateur
 
+-----------------------------
+
 * Tasks / liste des tasks: accessible à tous
 * Task / liste des tasks terminées: accesible à tous
 * Task / création: accessible aux utilisateurs authentifiés
 * Task / édition: accessible aux utilisateurs authentifiés
 * Task / suppression: accessible aux utilisateurs authentifiés
+
+## Entités
 
 
 ## Connexion
@@ -78,6 +74,18 @@ Ce site est principalement constitué de 3 pages:
 
 Le projet To do app utilise le firewall de Symfony comme système d'authentification. Chaque page demandée passe par le firewall qui décide de filtrer en fonction de l'authentification. Un système de session est mis en place à partir de la connexion.
 
+
+### Processus d'authentification
+
+Par défaut l'user est considéré comme anonyme. S'il souhaite se connecter, il doit se rendre sur la page de connexion.
+
+* Après avoir complété et soumit le formulaire de connexion. L'application va recharger la path ```login``` avec les informations envoyées.
+
+* La path ``` login ``` est interceptée par le firewall de Symfony.
+
+* Les informations envoyées sont utilisée par ``` LoginFormAuthentificator ``` qui se charge du processus d'authentification.
+
+* Si l'user est authentifié, il est redirigé vers la page ``` home ```. Sinon il est renvoyé vers la page ``` login ``` .
 
 #### Paramètres
 
